@@ -24,5 +24,5 @@ Check out my LinkedIn post about Clean Code and Flutter:
 
 ## Screenshots
 
-![Home Screen](images/Screen_1.png)
-![Home Screen](images/Screen_2.png)
+![Home Screen 1](images/Screen_1.png)
+![Home Screen 2](images/Screen_2.png)
