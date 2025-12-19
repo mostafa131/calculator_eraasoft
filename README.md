@@ -29,4 +29,4 @@ Check out my LinkedIn post about Clean Code and Flutter:
 
 ### Screenshot two
 
-![Home Screen 2](images/Screen_2.png)
+![Home Screen 2](images/Screens_2.png)
