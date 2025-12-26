@@ -1,7 +1,20 @@
+import 'package:bmi_eraasoft/widgets/gender_container.dart';
+import 'package:bmi_eraasoft/widgets/info_container.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isMale = false;
+  bool isFemale = false;
+  int height = 100;
+  int weight=30;
+  int age=20;
 
   @override
   Widget build(BuildContext context) {
@@ -27,40 +40,28 @@ class HomeScreen extends StatelessWidget {
               // Male / Female
               Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      height: 180,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Color(0xff24263B),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.male, size: 120, color: Colors.white),
-                          Text("Male",
-                              style: TextStyle(fontSize: 20, color: Colors.white)),
-                        ],
-                      ),
-                    ),
+                  GenderContainer(
+                    title: "Male",
+                    icon: Icons.male,
+                    color: isMale ? Colors.red : Color(0xff24263B),
+                    onTap: () {
+                      setState(() {
+                        isMale = true;
+                        isFemale = false;
+                      });
+                    },
                   ),
                   SizedBox(width: 9),
-                  Expanded(
-                    child: Container(
-                      height: 180,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Color(0xff24263B),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.female, size: 120, color: Colors.white),
-                          Text("Female",
-                              style: TextStyle(fontSize: 20, color: Colors.white)),
-                        ],
-                      ),
-                    ),
+                  GenderContainer(
+                    title: "Female",
+                    icon: Icons.female,
+                    color: isFemale ? Colors.red : Color(0xff24263B),
+                    onTap: () {
+                      setState(() {
+                        isMale = false;
+                        isFemale = true;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -78,13 +79,15 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Height",
-                        style: TextStyle(fontSize: 20, color: Colors.white)),
+                    Text(
+                      "Height",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                     Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: "150",
+                            text: height.toString(),
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -93,10 +96,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text: " cm",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
+                            style: TextStyle(fontSize: 15, color: Colors.white),
                           ),
                         ],
                       ),
@@ -104,9 +104,13 @@ class HomeScreen extends StatelessWidget {
                     Slider(
                       min: 0,
                       max: 300,
-                      value: 150,
+                      value: height.toDouble(),
                       activeColor: Color(0xffE83D67),
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          height = value.toInt();
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -117,89 +121,37 @@ class HomeScreen extends StatelessWidget {
               // Weight & Age
               Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding:EdgeInsets.only(top: 15,bottom: 21) ,
-                      decoration: BoxDecoration(
-                        color: Color(0xff333244),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        children: [
-                          Text("Weight",
-                              style: TextStyle(fontSize: 20, color: Colors.white)),
-                          SizedBox(height: 5,),
-                          Text("20",
-                              style: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height:21,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              FloatingActionButton.small(onPressed: (){},
-                                backgroundColor: Color(0xff8B8C9E),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                                child: Icon(Icons.remove,color: Colors.white,),
-                              ),
-                              FloatingActionButton.small(onPressed: (){},
-                                backgroundColor: Color(0xff8B8C9E),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                                child: Icon(Icons.add,color: Colors.white,),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                  InfoContainer(
+                    title: "Weight",
+                    number: weight,
+                    increaseOnTap: () {
+                      setState(() {
+                        weight++;
+                      });
+                    },
+                    decreaseOnTap: () {
+                      setState(() {
+                        if(weight>25){
+                          weight--;
+                        }
+                      });
+                    },
                   ),
                   SizedBox(width: 9),
-                  Expanded(
-                    child: Container(
-                      padding:EdgeInsets.only(top: 15,bottom: 21) ,
-                      decoration: BoxDecoration(
-                        color: Color(0xff333244),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        children: [
-                          Text("Age",
-                              style: TextStyle(fontSize: 20, color: Colors.white)),
-                          SizedBox(height: 5,),
-                          Text("60",
-                              style: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height:21,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              FloatingActionButton.small(onPressed: (){},
-                                backgroundColor: Color(0xff8B8C9E),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: Icon(Icons.remove,color: Colors.white,),
-                              ),
-                              FloatingActionButton.small(onPressed: (){},
-                                backgroundColor: Color(0xff8B8C9E),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: Icon(Icons.add,color: Colors.white,),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  InfoContainer(title: "Age",
+                      number: age,
+                  increaseOnTap: (){
+                    setState(() {
+                      age++;
+                    });
+                  },
+                  decreaseOnTap: (){
+                    if(age>10){
+                      setState(() {
+                        age--;
+                      });
+                    }
+                  },),
                 ],
               ),
             ],
@@ -207,17 +159,18 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar:
-      Container(
+      bottomNavigationBar: Container(
         height: 80,
         color: Color(0xffE83D67),
         alignment: Alignment.center,
-        child: Text("CALCULATE",style: TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold
-        ),),
-
+        child: Text(
+          "Calculate",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
