@@ -32,13 +32,16 @@ Check out my LinkedIn post about Clean Code and Flutter:
 ![Home Screen 2](images/Screens_2.png)
 
 #### Screenshot three
-![Home Screen 3](images/Screen_one.png)
+![Home Screen 3](images/Screenshot 1.png)
 
 ##### Screenshot four
-![Home Screen 4](images/Screen_two.png)
+![Home Screen 4](images/Screenshot 2.png)
 
-##### Screenshot five
-![Home Screen 5](images/umbrella.png)
+###### Screenshot five
+![Home Screen 5](images/1.jpeg)
+
+###### Screenshot six
+![Home Screen 6](images/2.jpeg)
 
 
 
