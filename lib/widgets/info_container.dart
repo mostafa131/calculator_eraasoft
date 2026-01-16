@@ -31,14 +31,18 @@ class InfoContainer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                FloatingActionButton.small(onPressed:decreaseOnTap,
+                FloatingActionButton.small(
+                  heroTag: "$title 1" ,
+                  onPressed:decreaseOnTap,
                   backgroundColor: Color(0xff8B8C9E),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Icon(Icons.remove,color: Colors.white,),
                 ),
-                FloatingActionButton.small(onPressed:increaseOnTap,
+                FloatingActionButton.small(
+                  heroTag: "$title 2",
+                  onPressed:increaseOnTap,
                   backgroundColor: Color(0xff8B8C9E),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),

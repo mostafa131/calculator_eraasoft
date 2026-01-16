@@ -10,6 +10,17 @@ class BmiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xff1c2135),
+        iconTheme: IconThemeData(
+          color: Colors.white
+        ),
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: Colors.white
+          )
+        )
+      ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
