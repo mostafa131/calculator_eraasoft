@@ -37,11 +37,34 @@ Check out my LinkedIn post about Clean Code and Flutter:
 ##### Screenshot four
 ![Home Screen 4](images/Screenshot_2.png)
 
-###### Screenshot five
-![Home Screen 5](images/1.jpeg)
+###### Screenshot Normal0
+![Home Screen 5](images/Normal0.jpeg)
 
-###### Screenshot six
-![Home Screen 6](images/2.jpeg)
+###### Screenshot Normal
+![Home Screen 6](images/Normal.jpeg)
+
+###### Screenshot Normal
+![Home Screen 7](images/Normal.jpeg)
+
+###### Screenshot Obese0
+![Home Screen 8](images/Obese0.jpeg)
+
+###### Screenshot Obese
+![Home Screen 9](images/Obese.jpeg)
+
+###### Screenshot OverWeight0
+![Home Screen 10](images/OverWeight0.jpeg)
+
+###### Screenshot OverWeight
+![Home Screen 11](images/OverWeight.jpeg)
+
+###### Screenshot UnderWeight0
+![Home Screen 12](images/UnderWeight0.jpeg)
+
+###### Screenshot UnderWeight
+![Home Screen 13](images/UnderWeight.jpeg)
+
+
 
 
 
